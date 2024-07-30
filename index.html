@@ -8,7 +8,9 @@
 <script>
 Telegram.WebApp.ready();
 Telegram.WebApp.MainButton.setText('Продолжить').show().onClick(function () {
-const data = JSON.stringify({date, time});
+let date = document.querySelector('input[type="date"]');
+let time= document.querySelector('input[type="time"]');
+const data = JSON.stringify({date:date.value, time:time.value});
 Telegram.WebApp.sendData(data);
 Telegram.WebApp.close();
 });
