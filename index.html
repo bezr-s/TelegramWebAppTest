@@ -6,12 +6,11 @@
 <input type="date">
 <input type="time">
 <script>
-var MainButton = Telegram.WebApp.MainButton;
-MainButton.show();
-console.log(MainButton)
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	Telegram.WebApp.sendData("some string that we need to send"); 
-	//при клике на основную кнопку отправляем данные в строковом виде
+Telegram.WebApp.ready();
+Telegram.WebApp.MainButton.setText('Продолжить').show().onClick(function () {
+const data = JSON.stringify({date, time});
+Telegram.WebApp.sendData(data);
+Telegram.WebApp.close();
 });
 </script>
 </body>
